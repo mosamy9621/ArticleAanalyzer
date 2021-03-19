@@ -1,4 +1,3 @@
-import json from "../../server/mockAPI";
 
 function handleSubmit(event) {
     event.preventDefault()
@@ -8,37 +7,60 @@ function handleSubmit(event) {
     let objForm = document.querySelector('.form');
     let objErrorElement = document.createElement('div');
     let objResult = document.querySelector('#results');
+    // clearing result section
     objResult.innerHTML = "";
+    // removing error section from DOM if exists
     if (objForm.lastChild.className == 'alert-error') {
         objForm.removeChild(objForm.lastChild);
     }
-    objResult.appendChild(messageElement);
-    if (!Client.ValidateURL(objUrlElement.value)) {
+    // validating that URL is a valid one 
+    if (!Client.validateURL(objUrlElement.value)) {
         objErrorElement.innerHTML = "Please provide a valid URL";
         objErrorElement.classList.add('alert-error')
         objForm.appendChild(objErrorElement);
         return;
     }
+    // interacting with the user while calling API
     messageElement.innerHTML = "Loading Data please wait...";
     messageElement.classList.add('message-section');
+    objResult.appendChild(messageElement);
     let objData = {
         URL: objUrlElement.value,
         lang: objLang.value
-    }    // Client.checkForName(formText)
-
+    } 
+    // calling meaning cloud API and expec promise to be recieved
     let promiseResult = getAritcleData(objData);
     promiseResult.then(function (responseData) {
         console.log(responseData);
         messageElement.innerHTML = responseData.message;
         if (responseData.object.status.code == '0') {
             let tblElement = document.createElement('table');
-            tblElement.innerHTML = generateDataTable(responseData);
+            // after getting the correct data generating table to be added to DOM
+            let strInnerHtml = generateDataTable(responseData);
+            if (strInnerHtml == false) {
+                return ;
+            }
+            tblElement.innerHTML = strInnerHtml;
             tblElement.classList.add('results-table');
             objResult.appendChild(tblElement);
         }
     })
 }
 function generateDataTable(responseData) {
+    let arrKey = ['agreement', 'confidence', 'irony', 'model', 'subjectivity'];
+    if (responseData == undefined || responseData.object == undefined) {
+        return false;
+    }
+    let flagError = false;
+    arrKey.forEach(function (strKey) {
+        if (responseData.object[strKey] == undefined) {
+            flagError = true;
+            return;
+        }
+    })
+    if (flagError) {
+        return flase;
+    }
     return ` <table class="results-table">
     <thead>
 <tr>
