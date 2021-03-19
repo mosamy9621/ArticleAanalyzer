@@ -1,0 +1,65 @@
+form {
+    border: 1px solid #545454;
+    border-radius: 3px;
+    padding: 40px;
+    .alert-error {
+        padding: 1rem;
+        background-color: #ee5c51;
+        color: white;
+        margin-top:.6em ;
+        border-radius: 0.7em;
+
+    }
+    label {
+        margin-right: 0.2em;
+    }
+
+    .note {
+        padding: 1rem;
+        margin-top: 2em;
+        background-color: #feffc8;
+        color: black;
+        border-radius: 0.7em;
+    }
+    .select-label {
+        margin-top: 2em;
+    }
+    input {
+        font-size: inherit;
+        border-radius: 0.4em;
+        border: 0.1em solid #555;
+        padding: 0.6em;
+    }
+    select {
+        font-size: inherit;
+        padding: .8em ;
+        border: none;
+        border-radius: .7em;
+        background-color: #ffffff;
+        margin-bottom: 1em;
+    }
+    .submit {
+        display: block;
+
+        margin: auto;
+        max-width: 6rem;
+        font-size: medium;
+        background: #4caf50 !important;
+        color: #fff;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        border: 0px;
+        padding: 0.5rem;
+    }
+    .submit:hover {
+        cursor : pointer;
+        background: black !important;
+    }
+
+    input {
+        padding: 5px 20px;
+        width: 80%;
+        line-height: 16px;
+        margin: 10px 0;
+    }
+}

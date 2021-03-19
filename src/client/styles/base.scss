@@ -1,0 +1,55 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-size: medium;
+    font-family: Arial, Helvetica, sans-serif;
+    background: whitesmoke;
+}
+
+main {
+    flex: 2;
+}
+
+section {
+    max-width: 800px;
+    margin: 50px auto;
+
+    // style can be found in https://www.w3schools.com/css/tryit.asp?filename=trycss_table_fancy
+    .results-table {
+        margin: 2em 0px;
+        color: black;
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        thead {
+            tr {
+                background-color: #383a39;
+                color: #fff;
+            }
+        }
+        td,
+        th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        tr {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #fff;
+            color: #383a39;
+        }
+    }
+
+    .results {
+        font-size: large;
+    }
+    .message-section {
+        padding: 1rem;
+        background-color: #6b8af0;
+        color: white;
+        margin-top: 0.6em;
+        border-radius: 0.7em;
+    }
+}

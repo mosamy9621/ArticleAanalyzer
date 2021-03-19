@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Article Analyzer</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="/">
+                Article Analyzer
+            </a>
+        </div>
+
+    </header>
+
+    <main>
+        <section>
+            <form class="form" onsubmit="return handleSubmit(event)">
+                <label>Article URL :
+                    <input id="URL" type="text" name="input" value="" placeholder="URL">
+                </label>
+                <label for="lang"> Article language :
+
+                </label>
+                <select id="lang" name="lang">
+                    <option value="en">English</option>
+                    <option value="es">Spanish</option>
+                    <option value="it">Italian</option>
+                    <option value="fr">French</option>
+                    <option value="pt">Portuguese</option>
+                    <option value="ca">Catalan</option>
+                    <option value="da">Danish</option>
+                    <option value="sv">Swedish</option>
+                    <option value="no">Norwegian</option>
+                    <option value="fi">Finnish</option>
+                </select>
+                <input type="submit" class="submit" value="submit" onclick="return Client.handleSubmit(event)"
+                    onsubmit="return handleSubmit(event)">
+                <div class="note">Note : Make sure that article's language chosen right to get valid data </div>
+            </form>
+        </section>
+
+        <section class="results">
+            <strong>Form Results:</strong>
+            <div class="results-body" id="results"></div>
+        </section>
+    </main>
+    <footer>
+    </footer>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }
+    </script>
+</body>
+
+</html>
