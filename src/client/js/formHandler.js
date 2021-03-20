@@ -15,7 +15,7 @@ function handleSubmit(event) {
     }
     // validating that URL is a valid one 
     if (!Client.validateURL(objUrlElement.value)) {
-        objErrorElement.innerHTML = "Please provide a valid URL";
+        objErrorElement.innerHTML = "Please provide a valid URL, www.example.com or HTTP://www.example.com";
         objErrorElement.classList.add('alert-error')
         objForm.appendChild(objErrorElement);
         return;

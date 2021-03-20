@@ -10,6 +10,9 @@ describe("Testing validation functionality",function () {
         expect(validateURL("https://example")).toEqual(false);
     });
     test("Testing an invalid URL",function(){
+        expect(validateURL("www.ggole.com")).toEqual(true);
+    });
+    test("Testing an invalid URL",function(){
         expect(validateURL("")).toEqual(false);
     });
     test("Testing an invalid URL",function(){
