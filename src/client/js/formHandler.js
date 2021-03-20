@@ -31,7 +31,6 @@ function handleSubmit(event) {
     // calling meaning cloud API and expec promise to be recieved
     let promiseResult = getAritcleData(objData);
     promiseResult.then(function (responseData) {
-        console.log(responseData);
         messageElement.innerHTML = responseData.message;
         if (responseData.object.status.code == '0') {
             let tblElement = document.createElement('table');
