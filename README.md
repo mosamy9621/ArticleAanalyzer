@@ -27,6 +27,7 @@ npm run build-dev
 ```
  for production enviroments... (express server runs on port 8081 )
 ```sh
+npm run build-prod
 npm start
 ```
 ```sh
